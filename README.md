@@ -34,6 +34,11 @@ DB_PORT=5432 # Por defecto, el puerto de PostgreSQL es 5432
 pnpm drizzle-kit generate
 ```
 
+## Run Drizzle Studio
+```bash
+npx drizzle-kit studio
+```
+
 ## Run the migration script to Neon
 ```bash
 npm run db:migrate
