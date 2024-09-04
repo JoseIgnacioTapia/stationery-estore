@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "type": "module",
+    "db:migrate": "tsx ./migrate.ts"
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.9.5",
@@ -17,13 +19,17 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@types/dotenv": "^8.2.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "dotenv": "^16.4.5",
+    "drizzle-kit": "^0.24.2",
     "eslint": "^8",
     "eslint-config-next": "14.2.7",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
+    "tsx": "^4.19.0",
     "typescript": "^5"
   }
 }
