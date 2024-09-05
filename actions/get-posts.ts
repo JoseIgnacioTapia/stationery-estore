@@ -2,11 +2,12 @@
 
 import { db } from '@/server';
 import { posts } from '@/server/schema';
+import { GetPostsResponse, Post } from '@/types';
 
-export default async function getPosts() {
-  const posts = await db.query.posts.findMany();
+export default async function getPosts(): Promise<GetPostsResponse> {
+  const posts: Post[] = await db.query.posts.findMany();
 
-  if (posts) {
+  if (!posts || posts.length === 0) {
     return { error: 'No posts found' };
   }
 

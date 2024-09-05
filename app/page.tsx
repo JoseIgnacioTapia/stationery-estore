@@ -1,7 +1,8 @@
 import getPosts from '@/actions/get-posts';
+import { GetPostsResponse } from '@/types';
 
 export default async function Home() {
-  const { error, success } = await getPosts();
+  const { error, success }: GetPostsResponse = await getPosts();
 
   if (error) {
     throw new Error(error);
@@ -10,11 +11,12 @@ export default async function Home() {
   if (success) {
     return (
       <main>
-        {success.map((post) => (
-          <div key={post.id}>
-            <h2>{post.title}</h2>
-          </div>
-        ))}
+        {success &&
+          success.map((post: { id: number; title: string }) => (
+            <div key={post.id}>
+              <h2>{post.title}</h2>
+            </div>
+          ))}
       </main>
     );
   }
